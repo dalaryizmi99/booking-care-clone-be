@@ -10,8 +10,9 @@ module.exports = {
       address: 'Viet Nam',
       phoneNumber: '84888186566',
       gender: 1,
-      typeRole: 'ROLE',
-      keyRole: 'R1',
+      image: 'abc.com/image',
+      roleId: 'R1',
+      positionId: 'Admin',
       createdAt: new Date(),
       updatedAt: new Date()
     }]);
