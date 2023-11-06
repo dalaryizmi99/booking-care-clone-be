@@ -88,10 +88,11 @@ let saveDetailInforDoctor = (inputData) => {
                 //upsert data into markdown table
                 if (inputData.action === 'CREATE') {
                     await db.Markdown.create({
+                        doctorId: inputData.doctorId,
                         contentHTML: inputData.contentHTML,
                         contentMarkdown: inputData.contentMarkdown,
                         description: inputData.description,
-                        doctorId: inputData.doctorId
+
                     })
                 } else if (inputData.action === 'EDIT') {
                     let doctorMarkdown = await db.Markdown.findOne({
@@ -110,7 +111,9 @@ let saveDetailInforDoctor = (inputData) => {
 
                 //upsert data into doctor_infor table
                 let doctorInfor = await db.Doctor_Infor.findOne({
-                    where: { doctorId: inputData.doctorId },
+                    where: {
+                        doctorId: inputData.doctorId
+                    },
                     raw: false
                 })
 
